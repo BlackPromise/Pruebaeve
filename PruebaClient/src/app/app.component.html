@@ -1,0 +1,21 @@
+<ng-template #content let-offcanvas>
+  <app-user [idUsuario]="idUsuario" (onClose)="onClose()" (showAlert)="ShowAlert($event)"></app-user>
+</ng-template>
+<div class="container">
+  <div class="card mt-4">
+    <div class="card-header">
+          <span class="navbar-brand mb-0 h1">PRUEBA</span>
+          <button class="btn btn-outline-primary m-1" style="float:right" (click)="onClose()">
+            Actualizar <i class="fa fa-refresh "></i>
+          </button>
+          <button class="btn btn-outline-primary m-1 open-side" style="float: right;" (click)="open(content)">
+            Nuevo <i class="fa fa-plus"></i>
+          </button>
+          <div class="close-side" (click)="close(content)"></div>
+    </div>
+    <div class="card-body">
+      <app-search (onSelectUser)="onSelectUser($event)" (showAlert)="ShowAlert($event)"></app-search>
+      <ngb-alert [dismissible]="false" [type]="alert.type" *ngIf="alert && alert.message">{{ alert.message }}</ngb-alert>
+    </div>
+  </div>
+</div>

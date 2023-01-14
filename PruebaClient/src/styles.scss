@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+.table-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: #212529 solid 1px;
+    object-fit: cover;
+    padding: 2px;
+}
+
+.user-img {
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+    border: red solid 1px;
+    padding: 5px;
+    object-fit: cover;
+    margin-left: calc(50% - 80px);
+}
+
+.user-img-change {
+    height: 0;
+
+    input {
+        position: relative;
+        padding-top: 160px;
+        left: 27%;
+        top: -160px;
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        cursor: pointer;
+
+        &:hover {
+            background: #00000036;
+        }
+    }
+}

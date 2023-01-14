@@ -1,0 +1,32 @@
+
+  <table class="table table-striped">
+	<thead class="table-dark">
+		<tr>
+			<th scope="col"></th>
+			<th scope="col">Nombre</th>
+			<th scope="col">Fecha de nacimiento</th>
+			<th scope="col">Tiene hermanos</th>
+			<th scope="col">Estado civil</th>
+			<th scope="col">Opciones</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let usuario of Usuarios; index as i">
+			<th scope="row">
+                <img class="table-img" [src]="usuario.Imagen || ''" alt="imagen usuario">
+            </th>
+			<td>
+				{{ usuario.Nombre + ' ' + usuario.Nombre }}
+			</td>
+			<td>{{ usuario.FechaNacimiento | date :  "dd/MM/yyyy" }}</td>
+			<td>
+                <span [class]="usuario.TieneHermanos ? 'badge text-bg-success' : 'badge text-bg-danger' ">{{ usuario.TieneHermanos ? 'SI' : 'No' }}</span>
+			<td>{{ transaccion.EstadoCivil(usuario.IdEstadoCivil) }}</td>
+			<td>
+                <button type="button" class="m-1 btn-sm btn btn-dark" (click)="EditarUsuario(usuario.IdUsuario)"><i class="fa fa-edit"></i></button>
+                <button type="button" class="m-1 btn-sm btn btn-dark" (click)="EliminarUsuario(usuario.IdUsuario)"><i class="fa fa-remove"></i></button>
+            </td>
+		</tr>
+	</tbody>
+</table>
+<div class="refresh" (click)="ConsultarUsuarios()"></div>
